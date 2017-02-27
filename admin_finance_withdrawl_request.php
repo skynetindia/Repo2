@@ -4,96 +4,7 @@
 <section id="widget-grid" class="">
 
 	<!-- row -->
-	<div class="row">
-
-		<!-- NEW WIDGET START -->
-		<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
-			<!-- Widget ID (each widget will need unique ID)-->
-			<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-0" data-widget-editbutton="false">
-				<!-- widget options:
-				usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-
-				data-widget-colorbutton="false"
-				data-widget-editbutton="false"
-				data-widget-togglebutton="false"
-				data-widget-deletebutton="false"
-				data-widget-fullscreenbutton="false"
-				data-widget-custombutton="false"
-				data-widget-collapsed="true"
-				data-widget-sortable="false"
-
-				-->
-				<header>
-					<?php $this->load->view('adminpanel/headers/finance_withdraw_header');?>
-				</header>
-
-				<!-- widget div-->
-				<div>
-
-					<!-- widget edit box -->
-					<div class="jarviswidget-editbox">
-						<!-- This area used as dropdown edit box -->
-                        
-
-					</div>
-                     <?php
-					if(isset($this->isAccessDenied) && $this->isAccessDenied == true){
-						echo '<fieldset>Access Denied</fieldset>';
-					}
-					else {
-					?>
-                     <?php echo $this->session->flashdata('message');?> 
-                     <div class="whitenoteboxinner marginnone"><span class="color-red"><b>*Note :</b></span> This is Our Automated System For The Mass Payment. You Can Select The Records You Want to Pay And Make Payments. You Can Also Cancel Request(s) or Mark Request(s) as Paid if You Want to Pay Them Personally. And Make Sure That All The Details of Your Processors Are Correct And Accurate to Avoid Transaction Failures.</div>
-                     <center id="withdrawstats">
-		
-		<div class="serchgreybox">Withdraw Amount Statistics</div>
-		<div class="withdrawtable">
-		    <div class="tablegrid">
-			    <div class="tablegridheader">
-				<div>Description</div>
-                <?php $statdata=$this->wallet->withdrawalstats();
-				foreach($statdata as $skey=>$sval){?>
-				<div><?php echo ucwords($skey);?></div>
-                <?php }?>			
-			    </div>
-			    <div class="tablegridrow">
-				<div>Current Page Record</div>
-				<?php $statdata=$this->wallet->withdrawalstats();
-				foreach($statdata as $skey=>$sval){?>
-				<div>$ <?php echo number_format($sval,2);?></div>
-                <?php }?>	
-			    </div>
-		    </div>
-		</div>
 	
-	
-	<div class="clear-both"></div>
-	
-	</center>
-					<!-- end widget edit box -->
-                        <div class="serchmainbox">
-                            <div class="serchgreybox">Search Option</div>
-                            <form action="finance/withdrawrequest" onsubmit="return false;" id="WithdrawAdminpanelWithdrawrequestForm" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"></div>	<div class="from-box">
-                                <div class="fromboxmain">
-                                  <span>Search By :</span>
-                                  <span>
-                                    <div class="searchoptionselect">
-                                        <div class="select-main">
-                                            <label>
-                                                <div class="input select"><select name="searchby" class="" style="" onchange="if($(this).val()==&quot;processorid&quot;){$(&quot;#searchforall&quot;).hide();$(&quot;#searchforcombo&quot;).show(500);}else{$(&quot;#searchforcombo&quot;).hide();$(&quot;#searchforall&quot;).show(500);}" id="WithdrawSearchby">
-                        <option value="all"  <?php echo (isset($post['searchby'])&& $post['searchby']=='all')?'selected':'';?>>Select Parameter</option>
-                        <option value="member_id"  <?php echo (isset($post['searchby'])&& $post['searchby']=='member_id')?'selected':'';?>>Member Id</option>
-                        <option value="user_name"  <?php echo (isset($post['searchby'])&& $post['searchby']=='user_name')?'selected':'';?>>Username</option>
-                        <option value="amount"  <?php echo (isset($post['searchby'])&& $post['searchby']=='amount')?'selected':'';?>>Amount</option>
-                        <option value="fee"  <?php echo (isset($post['searchby'])&& $post['searchby']=='fee')?'selected':'';?>>Fees</option>
-                        <option value="processorid"  <?php echo (isset($post['searchby'])&& $post['searchby']=='processorid')?'selected':'';?>>Payment Processor</option>
-                        <option value="pro_acc_id"  <?php echo (isset($post['searchby'])&& $post['searchby']=='pro_acc_id')?'selected':'';?>>Payment Processor Id</option>
-                        </select></div>					</label>
-                                        </div>
-                                    </div>
-                                  </span>
-                                </div>
                                 <div class="fromboxmain">
                                     <span>Search For :</span>
                                     <span id="searchforall" <?php echo (isset($post['searchby'])&& (($post['searchby']=="processorid")))?"style='display:none'":'';?>><div class="input text"><input name="searchfor" value="<?php echo (isset($post['searchfor']))?$post['searchfor']:'';?>" class="searchfor" type="text" id="WithdrawSearchfor"></div></span>
@@ -141,11 +52,7 @@
                                         <?php }?>
                                         <?php if(!isset($this->isCSVDenied) || $this->isCSVDenied == false){ 
 										/*?>
-                                        <li class="d-csv">
-                                             <a href="#"> Download CSV </a>
-                                               <embed id="ZeroClipboard_TableToolsMovie_1" src="../external/js/plugin/datatables/swf/copy_csv_xls_pdf.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboard_TableToolsMovie_1" allowscriptaccess="always" allowfullscreen="true" type="application/x-shockwave-flash"  flashvars="id=1&amp;width=40&amp;height=28" wmode="transparent" allownetworking="all"  align="middle" height="28" width="40" ></embed></li>
-											   */?>
-                                        <li class="d-csv-php" onclick="javascript:download('WithdrawAdminpanelWithdrawrequestForm','<?php echo SITEURLADMIN.$controllerName.'/exportwithdrawrequest';?>','pendingdeposits');">
+                     
                              				<a href="javascript:download('WithdrawAdminpanelWithdrawrequestForm','<?php echo SITEURLADMIN.$controllerName.'/exportwithdrawrequest';?>','pendingdeposits');"><i class="fa fa-download" aria-hidden="true"></i>  Download CSV </a>
 	                        			</li>
 										<?php }
