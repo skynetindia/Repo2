@@ -52,7 +52,11 @@
                                         <?php }?>
                                         <?php if(!isset($this->isCSVDenied) || $this->isCSVDenied == false){ 
 										/*?>
-                     
+                                        <li class="d-csv">
+                                             <a href="#"> Download CSV </a>
+                                               <embed id="ZeroClipboard_TableToolsMovie_1" src="../external/js/plugin/datatables/swf/copy_csv_xls_pdf.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboard_TableToolsMovie_1" allowscriptaccess="always" allowfullscreen="true" type="application/x-shockwave-flash"  flashvars="id=1&amp;width=40&amp;height=28" wmode="transparent" allownetworking="all"  align="middle" height="28" width="40" ></embed></li>
+											   */?>
+                                        <li class="d-csv-php" onclick="javascript:download('WithdrawAdminpanelWithdrawrequestForm','<?php echo SITEURLADMIN.$controllerName.'/exportwithdrawrequest';?>','pendingdeposits');">
                              				<a href="javascript:download('WithdrawAdminpanelWithdrawrequestForm','<?php echo SITEURLADMIN.$controllerName.'/exportwithdrawrequest';?>','pendingdeposits');"><i class="fa fa-download" aria-hidden="true"></i>  Download CSV </a>
 	                        			</li>
 										<?php }
