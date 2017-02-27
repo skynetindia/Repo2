@@ -126,17 +126,7 @@ class Member extends CI_Controller {
 				$rps[]=array('name'=>$rpsval->plan_name,'rpsvalue'=>$rpsrecord[0]->position);
 			}
 			//PTC Records
-			$ptcrecord['table']="ptc_histories";
-			$ptcrecord['fields']="count(*) as ptc_click,sum(amount) as ptc_amount";
-			$ptcrecord['where']['member_id']=$this->userID;
-			$ptcdata=$this->my_model->selectRecords($ptcrecord);
-			$viewdata['ptcdata']=$ptcdata;
-			$viewdata['member']=$memberdata;
-			$viewdata['sponsorname']=$sponsorname;
-			$viewdata['rps']=$rps;
-			$viewdata['matrixrecord']=(count($matrixrecord)!=0)?$matrixrecord[0]->position:0;
-			$viewdata['revenuerecord']=(count($revenuerecord)!=0)?$revenuerecord[0]->position:0;
-			$viewdata['loginaddcounter']=0;
+			
 			//Start Login ad code
 				if($this->loginsession!=1)
 				{
@@ -263,15 +253,7 @@ class Member extends CI_Controller {
 			}
 			else
 			{
-				$dataprocessor['table']='processors';
-				$dataprocessor['where']['receivefund']='1';
-				$dataprocessor['where']['proc_status']='1';
-				$processordata=$this->my_model->selectRecords($dataprocessor);
-				foreach($processordata as $pkey=>$pval)
-				{
-					$processor_id[]=$pval->id;
-				}
-				
+			
 				$wallet=$this->wallet->wallet_info(implode(',',$processor_id),'cash,repurchase,earning,commission',$this->userID);
 			
 				$paymentdata['table']=$this->paymenttable;
@@ -367,14 +349,7 @@ class Member extends CI_Controller {
 				$matrixdata['where']['to_id']=$this->userID;
 				$matrixrecord=$this->my_model->totalRecords($matrixdata);
 				//Initialize  pagination
-				  	$config['target']      = '#postList';
-					$config['base_url']    = SITEURL.'member/commission';
-					$config['total_rows']  = $matrixrecord;
-					$config['per_page']    = 10;
-        
-      				$this->ajax_pagination->initialize($config);
-					$matrixdata['offset']=10;
-					$matrixdata['limit']=($offset==0)?$offset:($offset);
+				  
 				  	//End
 					
 						$matrixdata['orderby']='tran_id desc';
