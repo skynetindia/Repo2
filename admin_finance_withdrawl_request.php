@@ -113,10 +113,7 @@
                                         </td>
                                          <td><?php echo $val->pro_acc_id;?></td>
                                        
-                                        <td><?php echo $val->withdrawbalance;?></td>
-                                         <td><?php echo '$'.$val->amount;?></td>
-                                          <td><?php echo '$'.$val->fee;?></td>
-                                          <td>
+                                        
                                         <div class="actionmenu">
                                             <div class="btn-group">
                                               <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true"> Action <span class="caret"></span> </button>
