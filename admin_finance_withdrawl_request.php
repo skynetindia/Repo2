@@ -80,15 +80,18 @@
 							<table class="table table-striped table-bordered dataTable no-footer" id="datatable_fixed_column123">
 								<thead>
 									<tr>
+
                                         <th><a href="javascript:loadContents('<?php echo $functionName.'/'.$functionName.'/'.$functionName.'/'.$functionName.'/with_id/'.$order.'/1';?>','content')" class="vtip" title="Sort By Id">Id</a></th>
                                         <th><a href="javascript:loadContents('<?php echo $functionName.'/'.$functionName.'/'.$functionName.'/'.$functionName.'/req_dt/'.$order.'/1';?>','content')" class="vtip" title="Sort By Request Date">Req. Dt.</a></th>
 										<th><a href="javascript:loadContents('<?php echo $functionName.'/'.$functionName.'/'.$functionName.'/'.$functionName.'/member_id/'.$order.'/1';?>','content')" class="vtip" title="Sort By Member ID">Member ID</a></th>
 										<th><a href="javascript:loadContents('<?php echo $controllerName.'/'.$functionName.'/'.$page.'/'.$perpage.'/payment_processor/'.$order.'/1';?>','content')" class="vtip" title="Sort By Payment Processor">Payment Processor</a></th>
+                                     
                                         <th><a href="javascript:loadContents('<?php echo $controllerName.'/'.$functionName.'/'.$page.'/'.$perpage.'/pro_acc_id/'.$order.'/1';?>','content')" class="vtip" title="Sort By Payment Processor Id">Payment Processor Id</a></th>
                                         <th><a href="javascript:loadContents('<?php echo $controllerName.'/'.$functionName.'/'.$page.'/'.$perpage.'/withdrawbalance/'.$order.'/1';?>','content')" class="vtip" title="Sort By Balance">Balance</a></th>
-                                        <th><a href="javascript:loadContents('<?php echo $controllerName.'/'.$functionName.'/'.$page.'/'.$perpage.'/amount/'.$order.'/1';?>','content')" class="vtip" title="Sort By Amount">Amount</a></th>
-                                        <th><a href="javascript:loadContents('<?php echo $controllerName.'/'.$functionName.'/'.$page.'/'.$perpage.'/fee/'.$order.'/1';?>','content')" class="vtip" title="Sort By Fees">Fees</a></th>
+                                        <th><a href="javascript:loadContents('<?php echo $controllerName.'/'.$controllerName.'/'.$page.'/'.$perpage.'/amount/'.$order.'/1';?>','content')" class="vtip" title="Sort By Amount">Amount</a></th>
+                                        <th><a href="javascript:loadContents('<?php echo $controllerName.'/'.$controllerName.'/'.$controllerName.'/'.$controllerName.'/fee/'.$controllerName.'/1';?>','content')" class="vtip" title="Sort By Fees">Fees</a></th>
                                         <th>Action</th>
+                                        
                                         <th></th>
                                         
 									</tr>
