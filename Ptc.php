@@ -115,7 +115,9 @@ class Ptc extends CI_Controller {
 
 		if($this->arrPTCAdsSettings['ptcsetting_isenable'] == '1'){ 
 
-			
+			$viewdata['textadds']=$this->my_model->selectRecords($dataB);
+			$query="SELECT * FROM `ptcbanners`as l where  member_id=".$this->userID;
+	
 
 			
 
@@ -126,7 +128,6 @@ class Ptc extends CI_Controller {
 			$dataB['offset'] = '10';
 
 			$viewdata['textadds']=$this->my_model->selectRecords($dataB);
-
 			$query="SELECT * FROM `ptcbanners`as l where  member_id=".$this->userID;
 
 			$viewdata['history']=$this->db->query($query)->result();
