@@ -115,12 +115,14 @@ class Ptc extends CI_Controller {
 
 		if($this->arrPTCAdsSettings['ptcsetting_isenable'] == '1'){ 
 
-
-			$viewdata['title']="PTC Ads-Marketersmile_PTC";
-			$data['table'] = $this->secondaryTable_test;
 			$data['where'] = array('ishide'=>'0','status'=>12);			 	
 			$viewdata['planadds']=$this->my_model->selectRecords($data1);
 
+
+
+			$viewdata['textadds']=$this->my_model->selectRecords($dataB);
+			$query="SELECT * FROM `ptcbanners`as l where  member_id=".$this->userID;
+	
 
 
 			
@@ -132,7 +134,6 @@ class Ptc extends CI_Controller {
 			$dataB['offset'] = '10';
 
 			$viewdata['textadds']=$this->my_model->selectRecords($dataB);
-
 			$query="SELECT * FROM `ptcbanners`as l where  member_id=".$this->userID;
 
 			$viewdata['history']=$this->db->query($query)->result();
