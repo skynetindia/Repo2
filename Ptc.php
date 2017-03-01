@@ -115,13 +115,10 @@ class Ptc extends CI_Controller {
 
 		if($this->arrPTCAdsSettings['ptcsetting_isenable'] == '1'){ 
 
-			$viewdata['title']="PTC Ads-Marketersmile";
-
-			$data['table'] = $this->secondaryTable;
-
-			$data['where'] = array('ishide'=>'0','status'=>1);			 	
-
-			$viewdata['planadds']=$this->my_model->selectRecords($data);
+			$viewdata['title']="PTC Ads-Marketersmile_PTC";
+			$data['table'] = $this->secondaryTable_test;
+			$data['where'] = array('ishide'=>'0','status'=>12);			 	
+			$viewdata['planadds']=$this->my_model->selectRecords($data1);
 
 			
 
