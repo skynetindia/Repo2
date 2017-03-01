@@ -8,7 +8,7 @@ class Ptc extends CI_Controller {
 
 
 
-	public $controllerName = 'Ptc';
+	public $controllerName = 'ptc';
 
 	public $themeTable = 'ptcdesigns';
 
@@ -50,7 +50,6 @@ class Ptc extends CI_Controller {
 
 		$this->userID=$sessionData['userId'];
 
-		$this->bannercredit=$sessionData['banner_credit'];
 
 		$this->arrPTCAdsSettings = $this->settings->getPTCAdsSettings();
 
